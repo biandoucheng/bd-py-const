@@ -18,10 +18,10 @@ class _bdconst:
         Constant setting
         """
         if name in self.__dict__:
-            raise self.ConstError("Can't change const {0}".format(name))
+            raise self.ConstError("Can't change const `%s`" % name)
         
         if not name.isupper():
-            raise self.ConstCaseError("Const name {0} is not all uppercase".format(name))
+            raise self.ConstCaseError("Const name `%s` is not all uppercase" % name)
         
         self.__dict__[name] = value
     
@@ -37,5 +37,6 @@ class _bdconst:
         """
         return None
 
+import sys
 # Add constant instance to system module
-sys.modules['bdpyconst'] = _bdconst()
+sys.modules[__name__] = _bdconst()
