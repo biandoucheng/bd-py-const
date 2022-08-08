@@ -1,0 +1,1 @@
+# Python constant manager
